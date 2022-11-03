@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Input;
 using Windows.UI.ViewManagement;
 using Windows.ApplicationModel.Core;
 using Windows.System;
@@ -10,8 +10,8 @@ using System.Numerics;
 using Woop.ViewModels;
 using Woop.Services;
 using Windows.UI;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.Toolkit.Uwp.Helpers;
 
 namespace Woop.Views
@@ -51,12 +51,21 @@ namespace Woop.Views
 
             InitializeComponent();
 
-            Window.Current.SetTitleBar(TitleBar);
+            App.Window.SetTitleBar(TitleBar);
 
             Selector.Translation += new Vector3(0, 0, 32);
 
-            ApplicationView.PreferredLaunchViewSize = new Size(480, 480);
-            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
+                /*
+                   TODO UA315_A Use Microsoft.UI.Windowing.AppWindow for window Management instead of ApplicationView/CoreWindow or Microsoft.UI.Windowing.AppWindow APIs
+                   Read: https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/windowing
+                */
+                ApplicationView.PreferredLaunchViewSize = new Size(480, 480);
+
+                /*
+                   TODO UA315_A Use Microsoft.UI.Windowing.AppWindow for window Management instead of ApplicationView/CoreWindow or Microsoft.UI.Windowing.AppWindow APIs
+                   Read: https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/windowing
+                */
+                ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
 
             var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
             coreTitleBar.ExtendViewIntoTitleBar = true;
@@ -76,7 +85,12 @@ namespace Woop.Views
 
         private void SetTitleBarColors()
         {
-            var titleBar = ApplicationView.GetForCurrentView().TitleBar;
+            var titleBar = 
+                /*
+                   TODO UA315_A Use Microsoft.UI.Windowing.AppWindow for window Management instead of ApplicationView/CoreWindow or Microsoft.UI.Windowing.AppWindow APIs
+                   Read: https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/windowing
+                */
+                ApplicationView.GetForCurrentView().TitleBar;
 
             titleBar.ButtonBackgroundColor = Colors.Transparent;
             titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
@@ -103,7 +117,9 @@ namespace Woop.Views
 
         private async void OnApplicationThemeChanged(object sender, ElementTheme e)
         {
-            await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            await /*
+                TODO UA306_A2: UWP CoreDispatcher : Windows.UI.Core.CoreDispatcher is no longer supported. Use DispatcherQueue instead. Read: https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/threading
+            */Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
                 Root.RequestedTheme = e;
                 SetTitleBarColors();
@@ -139,7 +155,7 @@ namespace Woop.Views
 
         private void Page_Unloaded(object sender, RoutedEventArgs e)
         {
-            Window.Current.SetTitleBar(null);
+            App.Window.SetTitleBar(null);
             _settingsService.ApplicationThemeChanged -= OnApplicationThemeChanged;
             SelectorPopup.UnregisterPropertyChangedCallback(Popup.IsOpenProperty, _isOpenPropertyChangedCallbackToken);
             ViewModel = null;

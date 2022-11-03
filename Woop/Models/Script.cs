@@ -1,4 +1,4 @@
-﻿using Microsoft.ClearScript.V8;
+using Microsoft.ClearScript.V8;
 using System;
 using System.Text.Json;
 using Woop.Services;

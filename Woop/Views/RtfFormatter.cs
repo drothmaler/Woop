@@ -1,4 +1,4 @@
-﻿using ColorCode;
+using ColorCode;
 using ColorCode.Common;
 using ColorCode.Parsing;
 using ColorCode.Styling;

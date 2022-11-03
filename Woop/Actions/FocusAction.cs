@@ -1,6 +1,6 @@
-﻿using Microsoft.Xaml.Interactivity;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Microsoft.Xaml.Interactivity;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Woop.Actions
 {

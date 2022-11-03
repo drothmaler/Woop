@@ -1,4 +1,4 @@
-﻿using FuseSharp;
+using FuseSharp;
 using System.Collections.Generic;
 
 namespace Woop.Models

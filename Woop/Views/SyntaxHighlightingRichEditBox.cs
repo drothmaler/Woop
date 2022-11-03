@@ -1,9 +1,9 @@
-﻿using ColorCode;
+using ColorCode;
 using Microsoft.Toolkit.Uwp.UI;
 using Windows.System;
 using Windows.UI.Text;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 using Woop.Models;
 using Woop.Services;
 using Woop.ViewModels;
@@ -39,7 +39,7 @@ namespace Woop.Views
             UpdateText();
         }
 
-        private void OnLoaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void OnLoaded(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
         {
             ScrollViewer = this.FindDescendant<ScrollViewer>();
         }
@@ -52,7 +52,7 @@ namespace Woop.Views
             }
         }
 
-        private void OnKeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+        private void OnKeyDown(object sender, Microsoft.UI.Xaml.Input.KeyRoutedEventArgs e)
         {
             if (e.Key == VirtualKey.Tab)
             {

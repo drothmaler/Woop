@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using Windows.Storage;
 using Windows.UI.ViewManagement;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 
 namespace Woop.Services
 {

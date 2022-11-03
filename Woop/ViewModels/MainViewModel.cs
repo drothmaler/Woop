@@ -1,4 +1,4 @@
-﻿using FuseSharp;
+using FuseSharp;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
@@ -31,7 +31,9 @@ namespace Woop.ViewModels
         private const string ReloadedScripts = "Reloaded Scripts";
 
         private readonly ScriptManager _scriptManager;
-        private readonly CoreDispatcher _dispatcher;
+        private readonly /*
+                TODO UA306_A1: UWP CoreDispatcher : Windows.UI.Core.CoreDispatcher is no longer supported. Use DispatcherQueue instead. Read: https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/threading
+            */CoreDispatcher _dispatcher;
         private readonly SettingsService _settingsService;
         private string _query;
         private bool _pickerOpened;

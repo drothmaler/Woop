@@ -1,4 +1,4 @@
-﻿//using ChakraCore.NET;
+//using ChakraCore.NET;
 using Microsoft.ClearScript.V8;
 using System.Collections.Generic;
 using System.IO;

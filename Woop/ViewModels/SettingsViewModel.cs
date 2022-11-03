@@ -1,4 +1,4 @@
-﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.AccessCache;
 using Windows.Storage.Pickers;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 using Woop.Services;
 
 namespace Woop.ViewModels
@@ -56,7 +56,7 @@ namespace Woop.ViewModels
 
         public async Task Browse()
         {
-            var picker = new FolderPicker();
+            var picker = this.InitializeWithWindow(new FolderPicker());
             picker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
             picker.FileTypeFilter.Add("*");
 
@@ -68,5 +68,10 @@ namespace Woop.ViewModels
                 CustomScriptsFolderLocation = folder.Path;
             }
         }
+                        private FolderPicker InitializeWithWindow(FolderPicker obj)
+                        {
+                            WinRT.Interop.InitializeWithWindow.Initialize(obj, App.WindowHandle);
+                            return obj;
+                        }
     }
 }

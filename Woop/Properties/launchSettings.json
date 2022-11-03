@@ -1,0 +1,10 @@
+﻿{
+  "profiles": {
+    "Woop (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Woop (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

@@ -1,4 +1,4 @@
-﻿using ColorCode;
+using ColorCode;
 using ColorCode.Common;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;

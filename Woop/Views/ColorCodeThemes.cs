@@ -1,4 +1,4 @@
-﻿using ColorCode.Common;
+using ColorCode.Common;
 using ColorCode.Styling;
 
 namespace Woop.Views
