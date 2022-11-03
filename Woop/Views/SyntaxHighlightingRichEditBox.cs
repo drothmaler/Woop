@@ -1,7 +1,7 @@
 using ColorCode;
-using Microsoft.Toolkit.Uwp.UI;
 using Windows.System;
-using Windows.UI.Text;
+using CommunityToolkit.WinUI.UI;
+using Microsoft.UI.Text;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Woop.Models;

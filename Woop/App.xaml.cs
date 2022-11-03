@@ -17,6 +17,7 @@ using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Woop;
+using Woop.Services;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -28,6 +29,8 @@ namespace Woop
     /// </summary>
     public partial class App : Application
     {
+        private readonly SettingsService _settingsService;
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -35,6 +38,13 @@ namespace Woop
         public App()
         {
             this.InitializeComponent();
+
+            _settingsService = new SettingsService();
+
+            if (_settingsService.ApplicationTheme != ElementTheme.Default)
+            {
+                App.Current.RequestedTheme = _settingsService.ApplicationTheme == ElementTheme.Light ? ApplicationTheme.Light : ApplicationTheme.Dark;
+            }
         }
 
         /// <summary>

@@ -1,5 +1,6 @@
 using System;
 using Windows.UI;
+using Microsoft.UI;
 using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Media;
 using Woop.ViewModels;
@@ -17,11 +18,11 @@ namespace Woop.Converters
                     case StatusViewModel.StatusType.Normal:
                         return new SolidColorBrush(Colors.Transparent);
                     case StatusViewModel.StatusType.Info:
-                        return new SolidColorBrush(Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#0063B1"));
+                        return new SolidColorBrush(CommunityToolkit.WinUI.Helpers.ColorHelper.ToColor("#0063B1"));
                     case StatusViewModel.StatusType.Success:
-                        return new SolidColorBrush(Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#10893E"));
+                        return new SolidColorBrush(CommunityToolkit.WinUI.Helpers.ColorHelper.ToColor("#10893E"));
                     case StatusViewModel.StatusType.Error:
-                        return new SolidColorBrush(Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#E74856"));
+                        return new SolidColorBrush(CommunityToolkit.WinUI.Helpers.ColorHelper.ToColor("#E74856"));
                 }
             }
 

@@ -2,7 +2,7 @@ using CommunityToolkit.WinUI.UI.Animations;
 using System;
 using System.Collections.Generic;
 using Windows.Foundation;
-using Windows.UI.Text;
+using Microsoft.UI.Text;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;

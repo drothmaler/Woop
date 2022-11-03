@@ -1,5 +1,5 @@
-using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System;
+using CommunityToolkit.Mvvm.ComponentModel;
 using Woop.Models;
 
 namespace Woop.ViewModels

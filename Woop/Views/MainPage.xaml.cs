@@ -9,10 +9,10 @@ using Windows.System;
 using System.Numerics;
 using Woop.ViewModels;
 using Woop.Services;
-using Windows.UI;
+using CommunityToolkit.WinUI.Helpers;
+using Microsoft.UI;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.Toolkit.Uwp.Helpers;
 
 namespace Woop.Views
 {
